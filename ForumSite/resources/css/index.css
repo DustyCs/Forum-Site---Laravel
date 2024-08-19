@@ -1,0 +1,33 @@
+h1 {
+    color: red;
+}
+
+.forum-posts {
+    /* background-color: red; */
+    margin: 0.5rem auto;
+    border: 0.5rem black solid;
+    width: 200%;
+    height: 320%;
+    overflow: auto;
+}
+
+.posts {
+    width: 100%;
+}
+
+.post {
+    margin: 2rem auto;
+    border: 1px solid black;
+    width: 75%;
+    height: 10em;
+    cursor: pointer;
+}
+
+.post:hover{
+    background-color: rgb(43, 123, 194);
+}
+
+.index-side{
+    height: 60%;
+    margin: auto;
+}

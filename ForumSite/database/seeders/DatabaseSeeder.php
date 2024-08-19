@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\ForumPosts;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,9 +19,8 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        ForumPosts::factory(10)->create();
+        // ForumPosts::
+        DB::table("forum_posts_comments")->insert(['comment' => Str::random(10)]); // useful to access since i cant access it from ForumPosts::factory(10)->create();
     }
 }
