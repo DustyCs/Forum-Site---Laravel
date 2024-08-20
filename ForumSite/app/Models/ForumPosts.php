@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ForumPosts extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['id, title, description'];
 }

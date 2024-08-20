@@ -31,7 +31,7 @@
             <div class="selected-post">
                 <div class="post-container">
                     <div class="post-title">
-                        <h4>Hello World</h4>
+                        <h4>{{ dd($forum_post) }} 1</h4>
                     </div>
                     <div class="post-description">
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima odio consequatur optio exercitationem soluta porro id dolore magni a dignissimos numquam animi hic doloribus, eum at neque eaque, accusantium incidunt!</p>

@@ -30,16 +30,35 @@
             </div>
             <div class="forum-posts">
                 <div class="posts">
+                    {{--
                     @for ($i = 0; $i < 10; $i++)  
                         <div class="post">          
                             <div class="post-title">
-                            <h4>Why you should do this</h4>  
+                            <h4>{{ $posts[$i]['title'] }}</h4>  
                             </div>
                             <div class="post-description">
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, vero! Quia laborum aperiam natus sint!</p>
+                                <p>{{ $posts[$i]['description'] }}</p> 
+                                @php $test = 'Hello World'  @endphp
+                                <a href="{{ route('Forum.show', $test) }}" class="note-edit-button">View</a> {{-- works finally the route but now its not passing any data...--}}
+                                {{-- {{ dd($posts) }} 
                             </div>
                         </div>
                     @endfor
+                    --}}
+                    {{-- Switching to Foreach --}}
+                    @foreach ($posts as $post)  
+                        <div class="post">          
+                            <div class="post-title">
+                            <h4>{{ $post->title }}</h4>  {{-- Okay so $post['title'] does the same thing as $post->title --}}
+                            </div>
+                            <div class="post-description">
+                                <p>{{ $post['description'] }}</p> 
+                                {{ get_class($post) }}
+                                <a href="{{ route('Forum.show', $post) }}" class="note-edit-button">View</a> {{-- works finally the route but now its not passing any data...--}}
+                                {{-- {{ dd($posts) }} --}}
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

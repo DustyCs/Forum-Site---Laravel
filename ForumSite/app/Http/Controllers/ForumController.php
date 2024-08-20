@@ -12,7 +12,14 @@ class ForumController extends Controller
      */
     public function index()
     {
-        return view("forum.index", ['posts' => 'Forphp']);
+        // $forum_posts = ForumPosts::query()->orderBy("created_at","desc"); //not working
+        // $forum_posts = ForumPosts::all(); // same thing as the query() -> get() ???
+        $forum_posts = ForumPosts::query()->get();
+        // return view("forum.index", ['posts' => 'Forph2p']); // need data here aswell
+        // return view("forum.index", ['posts' => ForumPosts::all()]);
+
+        return view("forum.index", ['posts' => $forum_posts]);
+        // return dd($forum_posts);
     }
 
     /**
@@ -20,7 +27,7 @@ class ForumController extends Controller
      */
     public function create()
     {
-        return view("create");
+        return view("forum.create_post");
     }
 
     /**
@@ -36,7 +43,9 @@ class ForumController extends Controller
      */
     public function show(ForumPosts $forum)
     {
-        return view("forum.selected_post");
+        // return view("forum.selected_post", ['forum_post' => $forum]);
+        ECHO $forum;
+      
     }
 
     /**
@@ -44,7 +53,7 @@ class ForumController extends Controller
      */
     public function edit(ForumPosts $forum)
     {
-        return view("edit");
+        return view("forum.edit_post", ['forum_post' => $forum]);
     }
 
     /**
